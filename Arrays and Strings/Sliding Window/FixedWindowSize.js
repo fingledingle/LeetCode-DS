@@ -15,10 +15,10 @@ function FixedWindowGuy(nums, k){
         curr += nums[i]; //so once we know we have 4 items inside our array of 4 we can move on to the next step
     }
     
-    let ans = curr;
-    for (let i = k; i < nums.length; i++) {
-        curr += nums[i] - nums[i - k];
-        ans = Math.max(ans, curr);
+    let ans = curr; //setting the answer to be equals the curr
+    for (let i = k; i < nums.length; i++) { //then the loop responsible for making it the window move we also gotta start it from k instead of starting it from 0;
+        curr += nums[i] - nums[i - k]; //this being the next index then remove the last index from the left which is the current index - the window size
+        ans = Math.max(ans, curr); 
     }
     
     return ans;
